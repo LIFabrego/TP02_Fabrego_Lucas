@@ -1,14 +1,18 @@
 private Shooter nave;
 private Asteroide rocaEspacial;
 private JoyPad joyPad;
+private Hud hud;
 
 public void setup(){
   size(800,800);
+  hud = new Hud();
   nave = new Shooter(); 
   nave.setPosicion(new PVector(width/2,height/2));
   nave.setVelocidad(new PVector(10,10));
+  nave.setVida(5);
   joyPad = new JoyPad();
   rocaEspacial = new Asteroide(new PVector(random(0,width),0),new PVector(0,10));
+
   
 }
 
@@ -16,7 +20,8 @@ public void draw(){
   background(0);
   nave.display();
   rocaEspacial.display();
-  rocaEspacial.mover();
+  rocaEspacial.mover(int(random(0,width)));
+  hud.mostrarVidasNave();
   if (joyPad.isUpPressed()){
       nave.mover(0);
   }

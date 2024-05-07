@@ -18,7 +18,7 @@ class Asteroide extends GameObject{
     image(imagen,posicion.x,posicion.y,150,150);
   }
   
-  public void mover(){
+  public void mover(int posicion){
     if(this.posicion.y<=height){
       this.posicion.y+=this.velocidad.y;
     }else{

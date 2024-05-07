@@ -2,6 +2,7 @@ class Shooter extends GameObject{
   private PVector posicion;
   private PImage imagen;
   private PVector velocidad;
+  private int vida;
   
   // CONSTRUCTOR 
   public Shooter(){
@@ -13,8 +14,6 @@ class Shooter extends GameObject{
     image(imagen,posicion.x,posicion.y,150,150);
   }
 
-  public void mover(){
-  }
   /**
   * direccion (0:arriba; 1=abajo; 2 = izquierda, 3= derecha)
   */
@@ -39,6 +38,10 @@ class Shooter extends GameObject{
     }
   }
   
+  public int getDatos(){
+     return this.vida; 
+  }
+  
   public PVector getPosicion(){
     return this.posicion;
   }
@@ -54,5 +57,12 @@ class Shooter extends GameObject{
   public void setVelocidad(PVector velocidad){
     this.velocidad=velocidad;
   }
+
+  public int getVida(){
+    return this.vida;
+  }
   
+  public void setVida(int vida){
+    this.vida=vida;
+  }
 }
