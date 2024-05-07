@@ -18,19 +18,24 @@ class Shooter{
   * direccion (0:izquierda; 1=derecha; 2 = arriba, 3= abajo)
   */
   public void mover(int direccion){
-    if(direccion==0){
-      this.posicion.x-=this.velocidad.x;
+    switch(direccion){
+      case 0: {
+        this.posicion.y-=this.velocidad.y;
+        break;
+      }
+      case 1:{
+        this.posicion.y+=this.velocidad.y;
+        break;
+      }
+      case 3:{
+        this.posicion.x-=this.velocidad.x;
+        break;
+      }
+      case 4:{
+        this.posicion.x+=this.velocidad.x;
+        break;
+      }
     }
-    if(direccion==1){
-      this.posicion.x+=this.velocidad.x;
-    }
-    if(direccion==2){
-      this.posicion.y-=this.velocidad.y;
-    }
-    if(direccion==3){
-      this.posicion.y+=this.velocidad.y;
-    }
-    
   }
   
   public PVector getPosicion(){

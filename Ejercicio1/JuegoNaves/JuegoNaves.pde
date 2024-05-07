@@ -1,14 +1,13 @@
 private Shooter nave;
 private Asteroide rocaEspacial;
+private JoyPad joyPad;
 
 public void setup(){
   size(800,800);
   nave = new Shooter(); 
-  //nave.posicion = new PVector(width/2,height/2);
-  //nave.velocidad = new PVector(10,10);
   nave.setPosicion(new PVector(width/2,height/2));
   nave.setVelocidad(new PVector(10,10));
-  
+  joyPad = new JoyPad();
   rocaEspacial = new Asteroide(new PVector(width/2,0),new PVector(0,10));
   
 }
@@ -19,28 +18,51 @@ public void draw(){
   actualizarVelocidadNave();
   rocaEspacial.display();
   rocaEspacial.mover();
+  if (joyPad.isUpPressed()){
+      nave.mover(0);
+  }
+   if (joyPad.isDownPressed()){
+      nave.mover(1);
+  }
+   if (joyPad.isLeftPressed()){
+      nave.mover(3);
+  }
+   if (joyPad.isRightPressed()){
+      nave.mover(4);
+  }
 }
 
 public void keyPressed(){
-  if(key=='d'){
-    nave.mover(1);
+  if(key=='w' || keyCode==UP){
+    joyPad.setUpPressed(true);
   }
-  if(key=='a'){
-    nave.mover(0);
+  if(key=='s' || keyCode==DOWN){
+    joyPad.setDownPressed(true);
   }
-  
-  if(key=='w'){
-    nave.mover(2);
+    if(key=='a' || keyCode==LEFT){
+    joyPad.setLeftPressed(true);
   }
-  if(key=='s'){
-    nave.mover(3);
+    if(key=='d' || keyCode==RIGHT){
+    joyPad.setRightPressed(true);
   }
-  
 }
-
+public void keyReleased(){
+  if(key=='w' || keyCode==UP){
+    joyPad.setUpPressed(false);
+  }
+  if(key=='s' || keyCode==DOWN){
+    joyPad.setDownPressed(false);
+  }
+    if(key=='a' || keyCode==LEFT){
+    joyPad.setLeftPressed(false);
+  }
+    if(key=='d' || keyCode==RIGHT){
+    joyPad.setRightPressed(false);
+  }
+}
 public void actualizarVelocidadNave(){
   if(nave.getPosicion().x>(width/2)){
-    nave.getVelocidad().x=30;
+    nave.getVelocidad().x=10;
   }else{
     nave.getVelocidad().x=10;
   }
