@@ -1,4 +1,4 @@
-class Shooter{
+class Shooter extends GameObject{
   private PVector posicion;
   private PImage imagen;
   private PVector velocidad;
@@ -12,10 +12,11 @@ class Shooter{
     imageMode(CENTER);
     image(imagen,posicion.x,posicion.y,150,150);
   }
+
+  public void mover(){
+  }
   /**
-  * Mueve la posicon hacia izquierda o derecha según lo 
-  * que se indique en el atributo velocidad
-  * direccion (0:izquierda; 1=derecha; 2 = arriba, 3= abajo)
+  * direccion (0:arriba; 1=abajo; 2 = izquierda, 3= derecha)
   */
   public void mover(int direccion){
     switch(direccion){

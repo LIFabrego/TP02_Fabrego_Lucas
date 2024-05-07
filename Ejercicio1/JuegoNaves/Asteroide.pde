@@ -1,4 +1,4 @@
-class Asteroide{
+class Asteroide extends GameObject{
   private PVector posicion;
   private PImage imagen;
   private PVector velocidad;
@@ -23,6 +23,7 @@ class Asteroide{
       this.posicion.y+=this.velocidad.y;
     }else{
       this.posicion.y=0;
+      this.posicion.x=random(0,width);
     }
     
   }

@@ -8,14 +8,13 @@ public void setup(){
   nave.setPosicion(new PVector(width/2,height/2));
   nave.setVelocidad(new PVector(10,10));
   joyPad = new JoyPad();
-  rocaEspacial = new Asteroide(new PVector(width/2,0),new PVector(0,10));
+  rocaEspacial = new Asteroide(new PVector(random(0,width),0),new PVector(0,10));
   
 }
 
 public void draw(){
   background(0);
   nave.display();
-  actualizarVelocidadNave();
   rocaEspacial.display();
   rocaEspacial.mover();
   if (joyPad.isUpPressed()){
@@ -58,12 +57,5 @@ public void keyReleased(){
   }
     if(key=='d' || keyCode==RIGHT){
     joyPad.setRightPressed(false);
-  }
-}
-public void actualizarVelocidadNave(){
-  if(nave.getPosicion().x>(width/2)){
-    nave.getVelocidad().x=10;
-  }else{
-    nave.getVelocidad().x=10;
   }
 }
