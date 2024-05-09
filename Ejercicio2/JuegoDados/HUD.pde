@@ -2,7 +2,9 @@ class HUD {
   private String texto;
   private int num;
   
-  public HUD(){
+  public HUD(int num){
+    this.num=num;
+    display();
   }
   
    public void display(){ 

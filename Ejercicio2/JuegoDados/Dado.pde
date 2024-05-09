@@ -5,22 +5,32 @@ class Dado extends GameObject{
   private int n;
   //constructor
   public Dado(){
-    this.ancho=250;
   }
   
-  public Dado(float x,float y){
-    rect(x,y,width/2,width/2);
+  public Dado(PVector posicion,int n){
+    this.ancho=250;
+    this.posicion=posicion;
+    this.n=n;
+    fill(#FFFCFC);
+    fill(#B76309);
+    strokeWeight(10);
+    rect(this.posicion.x,this.posicion.y,this.ancho,this.ancho);
+    fill(0);    
+    dibujarNumero();
   }
   
   //metodo de clase
   public void display(){
     fill(#FFFCFC);
-    aux1=this.ancho/6;
     fill(#B76309);
     strokeWeight(10);
     rect(this.posicion.x,this.posicion.y,this.ancho,this.ancho);
     fill(0);
-    
+    dibujarNumero();
+  }
+  
+  public void dibujarNumero(){
+    aux1=this.ancho/6;
       switch(this.n){
       case 1:{
         circle(this.posicion.x+this.ancho/2,this.posicion.y+this.ancho/2,aux1);

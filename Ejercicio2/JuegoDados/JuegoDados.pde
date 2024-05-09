@@ -1,10 +1,13 @@
 private Dado cara;
 private HUD hud;
 private int num;
+
 public void setup(){
+  background(#096AB7);
   size(1200,700);
-  hud = new HUD();;
-  cara=new Dado();
+  num=int(random(1,7));
+  hud = new HUD(num);;
+  cara=new Dado(new PVector (width/2-100,height/2-100),num);
 }
 
 public void  draw(){
