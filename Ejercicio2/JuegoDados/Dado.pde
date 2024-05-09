@@ -13,8 +13,10 @@ class Dado extends GameObject{
   
   public Dado(float x,float y,int n){
     fill(#FFFCFC);
-    ancho=300;
+    ancho=200;
     aux1=ancho/6;
+    fill(#B76309);
+    strokeWeight(10);
     rect(x,y,ancho,ancho);
     fill(0);
     

@@ -35,6 +35,6 @@ class HUD{
         break;
       }     
   }
-    text(texto, width, 10);
+    text(texto, width-100, 100);
 }
 }
