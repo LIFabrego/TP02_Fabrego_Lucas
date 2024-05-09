@@ -1,15 +1,16 @@
-class HUD{
+class HUD {
   private String texto;
+  private int num;
   
   public HUD(){
   }
   
-   public void display(int num){ 
+   public void display(){ 
     fill(0);
-    textSize(40);
+    textSize(60);
     textAlign(RIGHT, TOP);
 
-    switch (num){
+    switch (this.num){
       case 1: {
         texto = "-  UNO  -";
         break;
@@ -37,4 +38,11 @@ class HUD{
   }
     text(texto, width-100, 100);
 }
+// get and set
+  public int getNum(){
+    return this.num;
+  }
+  public void setNum(int num){
+    this.num=num;
+  }
 }

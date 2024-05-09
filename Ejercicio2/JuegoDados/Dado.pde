@@ -1,72 +1,71 @@
 class Dado extends GameObject{
-  // atributos
   private PVector posicion;
   private float ancho;
   private float aux1;
+  private int n;
   //constructor
   public Dado(){
+    this.ancho=250;
   }
   
   public Dado(float x,float y){
     rect(x,y,width/2,width/2);
   }
   
-  public Dado(float x,float y,int n){
+  //metodo de clase
+  public void display(){
     fill(#FFFCFC);
-    ancho=200;
-    aux1=ancho/6;
+    aux1=this.ancho/6;
     fill(#B76309);
     strokeWeight(10);
-    rect(x,y,ancho,ancho);
+    rect(this.posicion.x,this.posicion.y,this.ancho,this.ancho);
     fill(0);
     
-      switch(n){
+      switch(this.n){
       case 1:{
-        circle(x+ancho/2,y+ancho/2,aux1);
+        circle(this.posicion.x+this.ancho/2,this.posicion.y+this.ancho/2,aux1);
         break;
       }
       case 2:{
-        circle(x+aux1,y+aux1,aux1);
-        circle(x+aux1*5,y+aux1*5,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1*5,aux1);
         break;
       }
       case 3:{
-        circle(x+ancho/2,y+ancho/2,aux1);
-        circle(x+aux1,y+aux1,aux1);
-        circle(x+aux1*5,y+aux1*5,aux1);
+        circle(this.posicion.x+this.ancho/2,this.posicion.y+this.ancho/2,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1*5,aux1);
         break;
       }
       case 4:{
-        circle(x+aux1,y+aux1,aux1);
-        circle(x+aux1*5,y+aux1*5,aux1);
-        circle(x+aux1*5,y+aux1,aux1);
-        circle(x+aux1,y+aux1*5,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1*5,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1*5,aux1);
         break;
       }
       case 5:{
-        circle(x+aux1,y+aux1,aux1);
-        circle(x+aux1*5,y+aux1*5,aux1);
-        circle(x+aux1*5,y+aux1,aux1);
-        circle(x+aux1,y+aux1*5,aux1);
-        circle(x+ancho/2,y+ancho/2,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1*5,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1*5,aux1);
+        circle(this.posicion.x+this.ancho/2,this.posicion.y+this.ancho/2,aux1);
         break;
       }
       case 6:{
-        circle(x+aux1,y+aux1,aux1);
-        circle(x+aux1*5,y+aux1*5,aux1);
-        circle(x+aux1*5,y+aux1,aux1);
-        circle(x+aux1,y+aux1*5,aux1);
-        circle(x+aux1,y+aux1*3,aux1);
-        circle(x+aux1*5,y+aux1*3,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1*5,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1*5,aux1);
+        circle(this.posicion.x+aux1,this.posicion.y+aux1*3,aux1);
+        circle(this.posicion.x+aux1*5,this.posicion.y+aux1*3,aux1);
         break;
       }
     }
   }
-  //metodos de clase
-    public void display(){
-    }
+
   //get and set
-  public PVector posicion(){
+  public PVector getPosicion(){
     return this.posicion;
   }
   public void setPosicion(PVector posicion){
@@ -79,12 +78,10 @@ class Dado extends GameObject{
   public void setAncho(float ancho){
     this.ancho=ancho;
   }
-  
-  public float getAux1(){
-    return this.aux1;
+  public int getN (){
+    return this.n;
   }
-  
-  public void setAux1(float ancho){
-    this.aux1=ancho/6;
+  public void setN(int n){
+    this.n=n;
   }
 }
