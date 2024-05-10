@@ -1,5 +1,6 @@
 class SpawnerVehiculo extends Obstaculo{
   private Obstaculo[] vehiculo;
+  private PImage imagen;
   
   //constructor
   public SpawnerVehiculo(){
