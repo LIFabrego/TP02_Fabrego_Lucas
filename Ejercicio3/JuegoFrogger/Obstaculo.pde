@@ -5,13 +5,15 @@ class Obstaculo{
   //constructor
   public Obstaculo(){
   }
-
+  public Obstaculo(PVector posicion){
+    this.posicion=posicion;
+  }
   // metodo de clase
   public void display(){
     for (int i=1;i<5;i++){
       this.n=i;
       vehiculo();
-      image(imagen,this.posicion.x,this.posicion.y+i*100,80,50);
+      image(imagen,this.posicion.x,this.posicion.y+i*80,170,130);
     }
   }
   public void vehiculo(){
