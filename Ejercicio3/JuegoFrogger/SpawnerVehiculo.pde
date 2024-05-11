@@ -3,6 +3,11 @@ class SpawnerVehiculo extends Obstaculo{
     int tipo;
     
     // constructor
+    public SpawnerVehiculo(int t,PVector pos,PVector vel){
+      super(pos,vel);
+      this.tipo=t;
+      obs=new Obstaculo[0];
+    }
     public SpawnerVehiculo(int t,int n, PVector pos,PVector vel){
      super(pos,vel);
       this.tipo = t;
