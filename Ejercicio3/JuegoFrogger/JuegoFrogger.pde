@@ -3,15 +3,15 @@ private Frogger personaje;
 //private SpawnerVehiculo[] linea;
 ////private HUD hud;
 //private float distancia=100;
-//int tierra = 0;
-//int auto = 1;
-//int tronco = 2;
+int tierra = 0;
+int auto = 1;
+int tronco = 2;
 private int distancia=100;
 
 public void setup(){
     size(1200,900);
     personaje = new Frogger(new PVector(width/2-distancia,height-distancia));
-    obstaculo = new Obstaculo(new PVector(width/2,height/2),new PVector (10,10));
+    obstaculo = new Obstaculo(new PVector(width/2,height/2),new PVector (5,10));
 }
 public void draw(){
   background(#290D9D);

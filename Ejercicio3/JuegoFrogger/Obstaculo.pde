@@ -2,11 +2,7 @@ class Obstaculo{
   private PVector posicion;
   private PVector velocidad;
   private PImage auto1,auto2,tronco;
-//  private int n;
-//  //constructor
-//  //public Obstaculo(){
-//  //  this.imagen = loadImage("tortuga.png");
-//  //}
+// constructor
   public Obstaculo(PVector posicion,PVector velocidad){
     this.posicion=posicion;
     this.velocidad=velocidad;
@@ -16,8 +12,9 @@ class Obstaculo{
   }
   //metodo de clase
     public void displayAuto(){
+      if (this.velocidad.x>0){
       image(this.auto1,this.posicion.x+50,this.posicion.y+50,150,100);
-      if (this.velocidad.x < 0){
+      } else {
         image(this.auto2,this.posicion.x,this.posicion.y,150,100);
       }
     }
