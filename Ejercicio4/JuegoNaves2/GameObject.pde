@@ -5,5 +5,5 @@ abstract class GameObject {
   /*protected int direccion;*/
   
   public abstract void display();
-  public abstract void mover(int direccion);
+  public abstract void move();
 }

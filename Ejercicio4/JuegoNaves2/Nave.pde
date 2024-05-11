@@ -1,4 +1,4 @@
-class Nave implements IDisplayable,IMoveable,IController{
+class Nave extends GameObject implements IDisplayable,IMoveable,IController{
   private PVector posicion;
   private PImage imagen;
   private PVector velocidad;
@@ -41,5 +41,12 @@ class Nave implements IDisplayable,IMoveable,IController{
   
   public void setVelocidad(PVector velocidad){
     this.velocidad=velocidad;
+  }
+    public PImage getImagen(){
+    return this.imagen;
+  }
+  
+  public void setImagen(PImage imagen){
+    this.imagen=imagen;
   }
 }
