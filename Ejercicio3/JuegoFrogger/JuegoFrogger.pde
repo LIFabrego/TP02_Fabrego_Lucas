@@ -10,12 +10,16 @@ private int distancia=100;
 
 public void setup(){
     size(1200,900);
-    background(#290D9D);
     personaje = new Frogger(new PVector(width/2-distancia,height-distancia));
-    personaje.display();
     obstaculo = new Obstaculo(new PVector(width/2,height/2),new PVector (10,10));
-    obstaculo.displayAuto();
-    obstaculo.displayTronco();
+}
+public void draw(){
+  background(#290D9D);
+  personaje.display();
+  obstaculo.displayAuto();
+  obstaculo.displayTronco();
+  obstaculo.mover();
+}
     //obstaculo.display();
     //obstaculo.setPosicion(new PVector(30,30));
     //obstaculo.setVelocidad(new PVector(10,10));
@@ -28,8 +32,3 @@ public void setup(){
 //  for (SpawnerVehiculo spaw: linea){
 //      spaw.movimiento();
 //  }
-
-  
-}
-public void draw(){
-}

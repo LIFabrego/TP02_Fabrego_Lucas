@@ -25,12 +25,15 @@ class Obstaculo{
       image(this.tronco,this.posicion.x-100,this.posicion.y-100,150,150);
     }
     
-    public void mover(){
-      this.posicion.x += this.velocidad.x;
-      if (this.velocidad.x > 0 && this.posicion.x>width){
-        this.posicion.x=0;
-      } else if (this.velocidad.x < 0 && this.posicion.x < width){
-        this.posicion.x = width;
+    public void mover(){;
+      if (this.velocidad.x > 0){
+        this.posicion.x += this.velocidad.x;
+          if(this.posicion.x>width){
+             this.posicion.x=0;}
+      } else if (this.velocidad.x<0){
+       this.posicion.x += this.velocidad.x;
+         if(this.posicion.x<0){
+             this.posicion.x=width;}
       }
     }
   // get and set
