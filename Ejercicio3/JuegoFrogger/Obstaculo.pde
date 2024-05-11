@@ -3,17 +3,18 @@ class Obstaculo{
   private PVector velocidad;
   private PImage auto1,auto2,tronco,tierra;
 // constructor
-  public Obstaculo(PVector posicion){
-    this.posicion=posicion;
-    this.tierra=loadImage("tierra.png");
-    //int distancia = 0;
-  }
+  //public Obstaculo(PVector posicion){
+  //  this.posicion=posicion;
+  
+  //  //int distancia = 0;
+  //}
   public Obstaculo(PVector posicion,PVector velocidad){
     this.posicion=posicion;
     this.velocidad=velocidad;
     this.tronco=loadImage("tronco.png");
     this.auto1=loadImage("vehiculo1.png");
     this.auto2=loadImage("vehiculo2.png");
+    this.tierra=loadImage("tierra.png");
 
   }
   //metodo de clase
@@ -25,13 +26,13 @@ class Obstaculo{
       }
     }
     public void displayTronco(){
-      image(this.tronco,this.posicion.x,this.posicion.y,150,200);
+      image(this.tronco,this.posicion.x,this.posicion.y-50,150,200);
     }
     public void displayTierra(){
-      for(float x=this.posicion.x;x<width;x+=this.posicion.x){
-              image(this.tierra,this.posicion.x,this.posicion.y,150,200);
+      for(float x=this.posicion.x;x<width;x+=100){
+              image(this.tierra,this.posicion.x+x,this.posicion.y,150,80);
           }
-        }
+      }
     
     public void mover(){;
       if (this.velocidad.x > 0){
