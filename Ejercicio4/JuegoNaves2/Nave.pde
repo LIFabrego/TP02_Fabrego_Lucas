@@ -17,10 +17,18 @@ class Nave extends GameObject implements IDisplayable,IMoveable,IController{
   public void move(){
       if (keyPressed) {
         if (key == 'a' || key == 'A') { // Mover a la izquierda
-          this.posicion.x -= this.velocidad.x;
-        } else if (key == 'd' || key == 'D') { // Mover a la derecha
-          this.posicion.x += this.velocidad.x;
-        }
+           if (this.posicion.x<0){
+              this.posicion.x-=this.velocidad.x*0;
+            } else{
+             this.posicion.x -= this.velocidad.x; 
+            }
+          } else if (key == 'd' || key == 'D') { // Mover a la derecha
+              if (this.posicion.x>width){
+                this.posicion.x-=this.velocidad.x*0;
+              } else{
+              this.posicion.x += this.velocidad.x;
+              }
+          }
       }
   }
   
