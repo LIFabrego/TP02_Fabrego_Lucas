@@ -2,11 +2,12 @@ class Nave extends GameObject implements IDisplayable,IMoveable,IController{
   private PVector posicion;
   private PImage imagen;
   private PVector velocidad;
+  ArrayList<Bala> balas;
   
   public Nave(){
     imagen = loadImage("shooter.png");
     this.posicion= new PVector(width/2,height-100);
-    this.velocidad= new PVector(10,0);
+    this.velocidad= new PVector(10,10);
   }
   
   //metodos de clase
@@ -31,9 +32,13 @@ class Nave extends GameObject implements IDisplayable,IMoveable,IController{
           }
       }
   }
-  
+  public void disparar(){
+    Bala bala = new Bala (this.posicion,this.velocidad);
+    balas.add(bala);
+  }
   public void readCommand(){
   }
+  
   // get and set
   public PVector getPosicion(){
     return this.posicion;
