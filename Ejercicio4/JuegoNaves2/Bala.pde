@@ -13,9 +13,10 @@ class Bala extends GameObject implements IDisplayable,IMoveable{
   }
   //metodos de clase
   public void display(){
-  
+      image(imagen,this.posicion.x,this.posicion.y,50,50);
   }
   public void move(){
+    this.posicion.y-=this.velocidad.y;
   }
   
   
