@@ -7,13 +7,17 @@ class Nave extends GameObject implements IDisplayable,IMoveable,IController{
   public Nave(){
     imagen = loadImage("shooter.png");
     this.posicion= new PVector(width/2,height-100);
-    this.velocidad= new PVector(10,10);
+    this.velocidad= new PVector(10,3);
+    balas = new ArrayList<Bala>();
   }
   
   //metodos de clase
   public void display(){
     imageMode(CENTER);
-    image(imagen,posicion.x,posicion.y,150,150);
+    image(imagen,this.posicion.x,this.posicion.y,150,150);
+    for (Bala bala : balas) {
+             bala.display();
+    }
   }
   public void move(){
       if (keyPressed) {
@@ -30,10 +34,13 @@ class Nave extends GameObject implements IDisplayable,IMoveable,IController{
               this.posicion.x += this.velocidad.x;
               }
           }
+          if (key==' '){
+            disparar();
+          }
       }
   }
   public void disparar(){
-    Bala bala = new Bala (this.posicion,this.velocidad);
+    bala = new Bala (this.posicion.x,this.posicion.y);
     balas.add(bala);
   }
   public void readCommand(){

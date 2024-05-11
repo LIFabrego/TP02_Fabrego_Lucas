@@ -6,17 +6,16 @@ class Bala extends GameObject implements IDisplayable,IMoveable{
   public Bala(){
     imagen = loadImage("bala.png");
   }
-  public Bala(PVector posicion,PVector velocidad){
+  public Bala(float x, float y){
     imagen = loadImage("bala.png");
-    this.posicion=posicion;
-    this.velocidad=velocidad;
+    this.posicion= new PVector(x,y);
   }
   //metodos de clase
   public void display(){
       image(imagen,this.posicion.x,this.posicion.y,50,50);
   }
   public void move(){
-    this.posicion.y-=this.velocidad.y;
+    this.posicion.y-=5;
   }
   
   
