@@ -1,34 +1,43 @@
 class SpawnerVehiculo extends Obstaculo{
     Obstaculo[] obs;
-    int tipo;
+    private int tipo;
+    private int col;
     
     // constructor
-    public SpawnerVehiculo(int t,PVector pos,PVector vel){
-      super(pos,vel);
+    public SpawnerVehiculo(int t,PVector pos,color c){
+      super(pos);
       this.tipo=t;
-      obs=new Obstaculo[0];
+      obs=new Obstaculo[1];
+      obs[0]=new Obstaculo(pos);
+      this.col = c;
     }
-    public SpawnerVehiculo(int t,int n, PVector pos,PVector vel){
-     super(pos,vel);
+    public SpawnerVehiculo(int t,int n, PVector pos,PVector vel,color c){
+      super(pos,vel);
       this.tipo = t;
       obs = new Obstaculo[n];
       for (int i=0;i<n;i++){
         obs[i]= new Obstaculo(pos,vel);
       }
+      this.col=c;
     }
     
 
     //metodos de clases
     public void display(){
+      fill(col);
       if (this.tipo==1){
         for(Obstaculo o: obs){
-        o.displayAuto();
-        o.mover();
+          o.displayAuto();
+          o.mover();
         }
       } else if (this.tipo==2){
         for (Obstaculo o: obs){
           o.displayTronco();
           o.mover();
+        }
+      } else if (this.tipo==0){
+        for(Obstaculo o:obs){
+            o.displayTierra();
         }
       }
     }
@@ -40,24 +49,10 @@ class SpawnerVehiculo extends Obstaculo{
   public void setTipo(int tipo){
     this.tipo=tipo;
   }
+  public int getCol(){
+    return this.col;
+  }
+  public void setCol(int col){
+    this.col=col;
+  }
 }
-//  private Obstaculo[] obs;
-//  //private PImage imagen;
-  
-//  //constructor
-//  public SpawnerVehiculo(){
-//    //obs[0]=new Obstaculo();
-//  }
-//  public SpawnerVehiculo(int indice,int tipo,PVector posicion, PVector velocidad){
-//    //obs = new Obstaculo[indice];
-//    obs[indice] = new Obstaculo(tipo,posicion,velocidad);
-    
-//  }
-//  //metodo de clase
-//  public void movimiento(){
-//    for (Obstaculo o: obs){
-//      o.display();
-//      o.mover();
-//    }
-//  }  
-//}

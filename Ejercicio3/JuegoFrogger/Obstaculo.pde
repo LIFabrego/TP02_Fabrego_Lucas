@@ -1,26 +1,37 @@
 class Obstaculo{
   private PVector posicion;
   private PVector velocidad;
-  private PImage auto1,auto2,tronco;
+  private PImage auto1,auto2,tronco,tierra;
 // constructor
+  public Obstaculo(PVector posicion){
+    this.posicion=posicion;
+    this.tierra=loadImage("tierra.png");
+    //int distancia = 0;
+  }
   public Obstaculo(PVector posicion,PVector velocidad){
     this.posicion=posicion;
     this.velocidad=velocidad;
     this.tronco=loadImage("tronco.png");
     this.auto1=loadImage("vehiculo1.png");
     this.auto2=loadImage("vehiculo2.png");
+
   }
   //metodo de clase
     public void displayAuto(){
       if (this.velocidad.x>0){
-      image(this.auto1,this.posicion.x+50,this.posicion.y+50,150,100);
+      image(this.auto1,this.posicion.x,this.posicion.y,150,100);
       } else {
         image(this.auto2,this.posicion.x,this.posicion.y,150,100);
       }
     }
     public void displayTronco(){
-      image(this.tronco,this.posicion.x-100,this.posicion.y-100,150,150);
+      image(this.tronco,this.posicion.x,this.posicion.y,150,200);
     }
+    public void displayTierra(){
+      for(float x=this.posicion.x;x<width;x+=this.posicion.x){
+              image(this.tierra,this.posicion.x,this.posicion.y,150,200);
+          }
+        }
     
     public void mover(){;
       if (this.velocidad.x > 0){
@@ -30,7 +41,8 @@ class Obstaculo{
       } else if (this.velocidad.x<0){
        this.posicion.x += this.velocidad.x;
          if(this.posicion.x<0){
-             this.posicion.x=width;}
+             this.posicion.x=width;
+           }
       }
     }
   // get and set
@@ -63,94 +75,14 @@ class Obstaculo{
   }
   public void setTronco(PImage tronco){
     this.tronco=tronco;
+    }
+  public PImage getTierra(){
+    return this.tierra;
   }
-}  
-  
-  
-  
-//  //  //this.n=n;
-//  //  switch (n){
-//  //   case 1:{
-//  //     this.imagen=loadImage("vehiculo1.png");
-//  //     //this.imagen=imagen;
-//  //     break;
-//  //   }
-//  //   case 2:{
-//  //     this.imagen=loadImage("vehiculo2.png");
-//  //     //setImagen(imagen);
-//  //     break;
-//  //   }
-//  //   case 3:{
-//  //     imagen=loadImage("vehiculo3.png");
-//  //     //setImagen(imagen);
-//  //     break;
-//  //   }
-//  //   case 4:{
-//  //     imagen=loadImage("vehiculo4.png");
-//  //     //setImagen(imagen);
-//  //     break;
-//  //   }
-//  //   case 5:{
-//  //     imagen= loadImage("tronco.png");
-//  //     //setImagen(imagen);
-//  //     break;
-//  //   } 
-//  //}
-//  //}
-//  public Obstaculo(PVector posicion){
-//    this.posicion=posicion;
-//    vehiculo();
-//    setImagen(imagen);
-//  }
-//  // metodo de clase
-//  public void display(){
-//    for (int i=1;i<7;i++){
-//      this.n=i;
-//      vehiculo();
-//      image(this.imagen,this.posicion.x,this.posicion.y*80,200,150);
-//    }
-//  }
-//  public void mover(){
-//      if(this.posicion.x<=width){
-//          this.posicion.x+=this.velocidad.x;
-//      } else if(this.posicion.x!=0){
-//          this.posicion.x-=this.velocidad.x;
-
-//      }    
-//  }
-//  public void vehiculo(){
-//   switch (this.n){
-//     case 1:{
-//       imagen=loadImage("vehiculo1.png");
-//       break;
-//     }
-//     case 2:{
-//       imagen=loadImage("vehiculo2.png");
-//       break;
-//     }
-//     case 3:{
-//       imagen=loadImage("vehiculo3.png");
-//       break;
-//     }
-//     case 4:{
-//       imagen=loadImage("vehiculo4.png");
-//       break;
-//     }
-//     case 5:{
-//       imagen= loadImage("tronco.png");
-//     }
-//     //case 6:{
-//     //  imagen = loadImage("tortuga.png");
-//     //}
-//   }
-//  }
-
-  //public int getN (){
-  //  return this.n;
-  //}
-  //public void setN(int n){
-  //  this.n=n;
-  //}
+  public void setTierra(PImage tierra){
+    this.tierra=tierra;
+  }
+}
 
   
-//}
+ 
